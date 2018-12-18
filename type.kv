@@ -1,0 +1,368 @@
+#:import Factory kivy.factory.Factory
+<CustButton@Button>:
+    font_size:32
+    disabled: True
+    background_color: 0.5,0.5,0.5,.5
+
+
+<TypeGridLayout>:
+    id:typer
+    display:entry
+    rows:6
+    padding:20
+    spacing:10
+
+    BoxLayout:
+        padding:20,20
+
+        TextInput:
+            id: third_roter
+            font_size: 32
+            multiline:False
+            text: "1"
+            disabled: True
+        TextInput:
+            id: second_roter
+            font_size: 32
+            text: "1"
+            disabled: True
+            multiline:False
+        TextInput:
+            id: first_roter
+            font_size: 32
+            text: "1"
+            disabled: True
+            multiline:False
+
+    BoxLayout:
+        TextInput:
+            id: entry
+            font_size: 32
+            multiline:True
+            disabled: True
+
+
+    BoxLayout:
+        spacing:10
+        CustButton:
+            id: Q
+            text: "Q"
+        CustButton:
+            id: W
+            text: "W"
+            on_press: entry.text += self.text
+        CustButton:
+            id: E
+            text: "E"
+            on_press: entry.text += self.text
+        CustButton:
+            id: R
+            text: "R"
+            on_press: entry.text += self.text
+        CustButton:
+            id: T
+            text: "T"
+            on_press: entry.text += self.text
+        CustButton:
+            id: Y
+            text: "Y"
+            on_press: entry.text += self.text
+        CustButton:
+            id: U
+            text: "U"
+            on_press: entry.text += self.text
+        CustButton:
+            id: I
+            text: "I"
+            on_press: entry.text += self.text
+        CustButton:
+            id: O
+            text: "O"
+            on_press: entry.text += self.text
+        CustButton:
+            id: P
+            text: "P"
+            on_press: entry.text += self.text
+
+
+    BoxLayout:
+        spacing:10
+        CustButton:
+            id: A
+            text: "A"
+            on_press: entry.text += self.text
+        CustButton:
+            id: S
+            text: "S"
+            on_press: entry.text += self.text
+        CustButton:
+            id: D
+            text: "D"
+            on_press: entry.text += self.text
+        CustButton:
+            id: F
+            text: "F"
+            on_press: entry.text += self.text
+        CustButton:
+            id: G
+            text: "G"
+            on_press: entry.text += self.text
+        CustButton:
+            id: H
+            text: "H"
+            on_press: entry.text += self.text
+        CustButton:
+            id: J
+            text: "J"
+            on_press: entry.text += self.text
+        CustButton:
+            id: K
+            text: "K"
+            on_press: entry.text += self.text
+        CustButton:
+            id: L
+            text: "L"
+            on_press: entry.text += self.text
+    BoxLayout:
+        spacing:10
+        CustButton:
+            id: Z
+            text: "Z"
+            on_press: entry.text += self.text
+        CustButton:
+            id: X
+            text: "X"
+            on_press: entry.text += self.text
+        CustButton:
+            id: C
+            text: "C"
+            on_press: entry.text += self.text
+        CustButton:
+            id: V
+            text: "V"
+            on_press: entry.text += self.text
+        CustButton:
+            id: B
+            text: "B"
+            on_press: entry.text += self.text
+        CustButton:
+            id: N
+            text: "N"
+            on_press: entry.text += self.text
+        CustButton:
+            id: M
+            text: "M"
+            on_press: entry.text += self.text
+    BoxLayout:
+        spacing:10
+        CustButton:
+            text: "Settings"
+            on_press: Factory.MyPopup().open()
+            disabled: False
+        CustButton:
+            disabled: False
+            text: "clear"
+            on_press: entry.text = ""
+
+        CustButton:
+            text: "Exit"
+            on_press: app.Exit()
+            disabled: False
+
+
+<MyPopup@Popup>:
+    auto_dismiss: False
+    title:"Settings"
+    id:popup
+    rows:6
+    padding:20
+    spacing:10
+
+    FloatLayout:
+        padding:30,100
+        TextInput:
+            id:three
+            text: "1"
+            background_color: 0.92, 0.92, 0.61,.5
+            pos:20, root.height-130
+            size_hint:0.05, 0.075
+        TextInput:
+            id:two
+            text: "1"
+            background_color: 0.92, 0.92, 0.61,.5
+            pos:70, root.height-130
+            size_hint:0.05, 0.075
+        TextInput:
+            id:one
+            text: "1"
+            background_color: 0.92, 0.92, 0.61,.5
+            pos:120, root.height-130
+            size_hint:0.05, 0.075
+
+        CustButton:
+            text: 'Rotors'
+            background_color: 0.92, 0.92, 0.61,0
+            pos:0, root.height-90
+            size_hint:0.2, 0.075
+            font_size:14
+        CustButton:
+            text: 'Rotors Position Update'
+            on_press: app.root.update_rt(one.text,two.text,three.text)
+            background_color: 0.92, 0.92, 0.61,1
+            pos:20, root.height-185
+            size_hint:0.2, 0.075
+            disabled:False
+            font_size:14
+        CustButton:
+            text: 'Close!'
+            on_release: root.dismiss(), app.root.request()
+            disabled: False
+            background_color: 0.9, 0.7, 0.6,.5
+            pos:root.width-175, 20
+            size_hint:0.2, 0.15
+
+        TextInput:
+            id:letter0
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:20, root.height/2
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter1
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:60, root.height/2
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter2
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:130, root.height/2
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter3
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:170, root.height/2
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter4
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:240, root.height/2
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter5
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:280, root.height/2
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter6
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:350, root.height/2
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter7
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:390, root.height/2
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter8
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:460, root.height/2
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter9
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:500, root.height/2
+            size_hint:0.05, 0.075
+
+
+        TextInput:
+            id:letter10
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:20, root.height/3
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter11
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:60, root.height/3
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter12
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:130, root.height/3
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter13
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:170, root.height/3
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter14
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:240, root.height/3
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter15
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:280, root.height/3
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter16
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:350, root.height/3
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter17
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:390, root.height/3
+            size_hint:0.05, 0.075
+
+        TextInput:
+            id:letter18
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:460, root.height/3
+            size_hint:0.05, 0.075
+        TextInput:
+            id:letter19
+            text: ""
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:500, root.height/3
+            size_hint:0.05, 0.075
+
+        CustButton:
+            text: 'Plug Board'
+            background_color: 0.92, 0.92, 0.61,0
+            pos:0, root.height/2+40
+            size_hint:0.2, 0.075
+            font_size:14
+        CustButton:
+            text: 'Plug Position Update'
+            on_press: app.root.request_pl(letter0.text, letter1.text, letter2.text, letter3.text, letter4.text, letter5.text, letter6.text, letter7.text, letter8.text, letter9.text, letter10.text, letter11.text, letter12.text, letter13.text, letter14.text, letter15.text, letter16.text, letter17.text, letter18.text, letter19.text)
+            background_color: 0.4, 0.7, 0.9,.5
+            pos:20, root.height/4
+            size_hint:0.2, 0.075
+            disabled:False
+            font_size:14
